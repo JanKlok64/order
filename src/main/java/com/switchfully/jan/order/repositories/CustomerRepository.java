@@ -26,7 +26,15 @@ public class CustomerRepository {
         customers.put(customer.getUuid(), customer);
     }
 
-    public Collection<Customer> getCustomers() {
+    public Collection<Customer> getAllCustomers() {
         return new ArrayList<>(customers.values());
+    }
+
+    public Customer getCustomer(String id) {
+        for (Customer customer: customers.values()) {
+            if (customer.getUuid().equals(id))
+                return customer;
+        }
+        return null;
     }
 }

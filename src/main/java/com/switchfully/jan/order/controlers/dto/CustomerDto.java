@@ -2,7 +2,7 @@ package com.switchfully.jan.order.controlers.dto;
 
 import com.switchfully.jan.order.instances.Address;
 
-public class AddCustomerDto {
+public class CustomerDto {
     private String uuid;
     private String firstName;
     private String lastName;
@@ -34,32 +34,32 @@ public class AddCustomerDto {
         return phoneNumber;
     }
 
-    public AddCustomerDto setUuid(String uuid) {
+    public CustomerDto setUuid(String uuid) {
         this.uuid = uuid;
         return this;
     }
 
-    public AddCustomerDto setFirstName(String firstName) {
+    public CustomerDto setFirstName(String firstName) {
         this.firstName = firstName;
         return this;
     }
 
-    public AddCustomerDto setLastName(String lastName) {
+    public CustomerDto setLastName(String lastName) {
         this.lastName = lastName;
         return this;
     }
 
-    public AddCustomerDto setEmail(String email) {
+    public CustomerDto setEmail(String email) {
         this.email = email;
         return this;
     }
 
-    public AddCustomerDto setAddress(Address address) {
+    public CustomerDto setAddress(Address address) {
         this.address = address;
         return this;
     }
 
-    public AddCustomerDto setPhoneNumber(String phoneNumber) {
+    public CustomerDto setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
         return this;
     }

@@ -20,7 +20,11 @@ public class CustomerService {
         customerRepository.addCustomer(customer);
     }
 
-    public Collection<Customer> getCustomers() {
-        return customerRepository.getCustomers();
+    public Collection<Customer> getAllCustomers() {
+        return customerRepository.getAllCustomers();
+    }
+
+    public Customer getCustomer(String id) {
+        return customerRepository.getCustomer(id);
     }
 }

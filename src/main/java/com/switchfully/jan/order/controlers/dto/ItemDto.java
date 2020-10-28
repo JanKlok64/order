@@ -1,6 +1,6 @@
 package com.switchfully.jan.order.controlers.dto;
 
-public class AddItemDto {
+public class ItemDto {
     private String name;
     private String description;
     private double price;
@@ -22,22 +22,22 @@ public class AddItemDto {
         return stock;
     }
 
-    public AddItemDto setName(String name) {
+    public ItemDto setName(String name) {
         this.name = name;
         return this;
     }
 
-    public AddItemDto setDescription(String description) {
+    public ItemDto setDescription(String description) {
         this.description = description;
         return this;
     }
 
-    public AddItemDto setPrice(double price) {
+    public ItemDto setPrice(double price) {
         this.price = price;
         return this;
     }
 
-    public AddItemDto setStock(int stock) {
+    public ItemDto setStock(int stock) {
         this.stock = stock;
         return this;
     }

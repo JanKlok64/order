@@ -1,10 +1,7 @@
 package com.switchfully.jan.order.controlers;
 
-import com.switchfully.jan.order.controlers.dto.AddAdminDto;
-import com.switchfully.jan.order.exceptions.NotAuthorizedException;
+import com.switchfully.jan.order.controlers.dto.AdminDto;
 import com.switchfully.jan.order.instances.Address;
-import com.switchfully.jan.order.instances.Admin;
-import com.switchfully.jan.order.repositories.AdminRepository;
 import com.switchfully.jan.order.services.AdminService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,10 +27,10 @@ public class AdminController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public Collection<AddAdminDto> getAdmins() {
+    public Collection<AdminDto> getAdmins() {
         myLogger.info("List of admins delivered");
         return adminService.getAdmins().stream()
-                .map(admin -> new AddAdminDto()
+                .map(admin -> new AdminDto()
                         .setUuid(admin.getUuid())
                         .setFirstName(admin.getFirstName())
                         .setLastName(admin.getLastName())

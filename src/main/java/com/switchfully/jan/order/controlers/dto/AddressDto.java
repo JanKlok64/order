@@ -1,6 +1,6 @@
 package com.switchfully.jan.order.controlers.dto;
 
-public class AddAddressDto {
+public class AddressDto {
     private String street;
     private String houseNumber;
     private String postalCode;
@@ -22,22 +22,22 @@ public class AddAddressDto {
         return cityName;
     }
 
-    public AddAddressDto setStreet(String street) {
+    public AddressDto setStreet(String street) {
         this.street = street;
         return this;
     }
 
-    public AddAddressDto setHouseNumber(String houseNumber) {
+    public AddressDto setHouseNumber(String houseNumber) {
         this.houseNumber = houseNumber;
         return this;
     }
 
-    public AddAddressDto setPostalCode(String postalCode) {
+    public AddressDto setPostalCode(String postalCode) {
         this.postalCode = postalCode;
         return this;
     }
 
-    public AddAddressDto setCityName(String cityName) {
+    public AddressDto setCityName(String cityName) {
         this.cityName = cityName;
         return this;
     }

@@ -1,7 +1,7 @@
 package com.switchfully.jan.order.controlers;
 
-import com.switchfully.jan.order.controlers.dto.AddAddressDto;
-import com.switchfully.jan.order.controlers.dto.AddCustomerDto;
+import com.switchfully.jan.order.controlers.dto.AddressDto;
+import com.switchfully.jan.order.controlers.dto.CustomerDto;
 import com.switchfully.jan.order.exceptions.NotAuthorizedException;
 import com.switchfully.jan.order.instances.Address;
 import com.switchfully.jan.order.instances.Admin;
@@ -33,7 +33,7 @@ public class CustomerController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void addCustomer(@RequestBody AddCustomerDto addCustomerDto, AddAddressDto addAddressDto) {
+    public void addCustomer(@RequestBody CustomerDto addCustomerDto, AddressDto addAddressDto) {
         Address address = new Address(addAddressDto.getStreet(), addAddressDto.getHouseNumber(), addAddressDto.getPostalCode(), addAddressDto.getCityName());
         Customer customer = new Customer(addCustomerDto.getFirstName(), addCustomerDto.getLastName(), addCustomerDto.getEmail(), address, addCustomerDto.getPhoneNumber());
         customerService.addCustomer(customer);
@@ -42,13 +42,13 @@ public class CustomerController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public Collection<AddCustomerDto> getCustomers(@RequestParam (required = false) String adminId) {
+    public Collection<CustomerDto> getAllCustomers(@RequestParam String adminId) {
         if (adminId == null || adminId.isBlank() || !adminIsMatched(adminId)) {
             throw new NotAuthorizedException("Invalid adminId provided");
         }
         myLogger.info("List of customers delivered");
-        return customerService.getCustomers().stream()
-                .map(customer -> new AddCustomerDto()
+        return customerService.getAllCustomers().stream()
+                .map(customer -> new CustomerDto()
                         .setUuid(customer.getUuid())
                         .setFirstName(customer.getFirstName())
                         .setLastName(customer.getLastName())
@@ -61,6 +61,27 @@ public class CustomerController {
                 .collect(Collectors.toList());
     }
 
+    @GetMapping(path = "/{itemId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public CustomerDto getCustomer(@PathVariable String itemId, @RequestParam String adminId) {
+        myLogger.info("Reading customer");
+        if (adminId == null || adminId.isBlank() || !adminIsMatched(adminId)) {
+            throw new NotAuthorizedException("Invalid adminId provided");
+        }
+        myLogger.info("Customer read by id");
+        Customer customer = customerService.getCustomer(itemId);
+        return new CustomerDto()
+                .setUuid(customer.getUuid())
+                .setFirstName(customer.getFirstName())
+                .setLastName(customer.getLastName())
+                .setEmail(customer.getEmail())
+                .setAddress(new Address(customer.getAddress().getStreet(),
+                        customer.getAddress().getHouseNumber(),
+                        customer.getAddress().getPostalCode(),
+                        customer.getAddress().getCityName()))
+                .setPhoneNumber(customer.getPhoneNumber());
+    }
+
     public boolean adminIsMatched(String adminId) {
         for (Admin admin:adminService.getAdmins()) {
             if (admin.getUuid().equals(adminId))
@@ -68,5 +89,4 @@ public class CustomerController {
         }
         return false;
     }
-
 }
