@@ -1,6 +1,5 @@
 package com.switchfully.jan.order.repositories;
 
-import com.switchfully.jan.order.instances.Customer;
 import com.switchfully.jan.order.instances.Item;
 import org.springframework.stereotype.Repository;
 
@@ -15,4 +14,7 @@ public class ItemRepository {
         items.put(item.getId(), item);
     }
 
+    public Map<String, Item> getItems() {
+        return items;
+    }
 }
