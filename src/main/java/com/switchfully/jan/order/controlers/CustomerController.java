@@ -49,7 +49,7 @@ public class CustomerController {
         myLogger.info("List of customers delivered");
         return customerService.getAllCustomers().stream()
                 .map(customer -> new CustomerDto()
-                        .setUuid(customer.getUuid())
+                        .setUuid(customer.getId())
                         .setFirstName(customer.getFirstName())
                         .setLastName(customer.getLastName())
                         .setEmail(customer.getEmail())
@@ -71,7 +71,7 @@ public class CustomerController {
         myLogger.info("Customer read by id");
         Customer customer = customerService.getCustomer(itemId);
         return new CustomerDto()
-                .setUuid(customer.getUuid())
+                .setUuid(customer.getId())
                 .setFirstName(customer.getFirstName())
                 .setLastName(customer.getLastName())
                 .setEmail(customer.getEmail())
@@ -84,7 +84,7 @@ public class CustomerController {
 
     public boolean adminIsMatched(String adminId) {
         for (Admin admin:adminService.getAdmins()) {
-            if (admin.getUuid().equals(adminId))
+            if (admin.getId().equals(adminId))
                 return true;
         }
         return false;

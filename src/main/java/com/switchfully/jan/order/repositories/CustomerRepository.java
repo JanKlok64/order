@@ -16,14 +16,14 @@ public class CustomerRepository {
     public CustomerRepository() {
         Address address1 = new Address("Oudebaan", "191", "3000", "Leuven");
         Customer customer1 = new Customer("Jan", "Klok", "jan@klok.com", address1, "0484246262");
-        customers.put(customer1.getUuid(), customer1);
+        customers.put(customer1.getId(), customer1);
         Address address2 = new Address("Oudebaan", "191", "3000", "Leuven");
         Customer customer2 = new Customer("Lieve", "Klok", "jan@klok.com", address2, "0484246262");
-        customers.put(customer2.getUuid(), customer2);
+        customers.put(customer2.getId(), customer2);
     }
 
     public void addCustomer(Customer customer) {
-        customers.put(customer.getUuid(), customer);
+        customers.put(customer.getId(), customer);
     }
 
     public Collection<Customer> getAllCustomers() {
@@ -32,7 +32,7 @@ public class CustomerRepository {
 
     public Customer getCustomer(String id) {
         for (Customer customer: customers.values()) {
-            if (customer.getUuid().equals(id))
+            if (customer.getId().equals(id))
                 return customer;
         }
         return null;

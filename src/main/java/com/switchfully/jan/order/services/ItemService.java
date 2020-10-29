@@ -5,6 +5,9 @@ import com.switchfully.jan.order.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+import java.util.Map;
+
 @Service
 public class ItemService {
     private final ItemRepository itemRepository;
@@ -18,4 +21,7 @@ public class ItemService {
         itemRepository.addItem(item);
     }
 
+    public Collection<Item> getItems() {
+        return itemRepository.getItems();
+    }
 }

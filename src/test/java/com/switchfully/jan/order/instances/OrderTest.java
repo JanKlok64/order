@@ -20,7 +20,7 @@ class OrderTest {
         //when
         Address address = new Address("Oudebaan","191","3000","Leuven");
         Customer customer = new Customer("Jan","Klok","jan@klok.be",address,"0484246262");
-        Order order = new Order(LocalDate.of(2020,10,28),customer.getUuid(),itemGroups);
+        Order order = new Order(LocalDate.of(2020,10,28),customer.getId(),itemGroups);
         //then
         assertEquals("Blue suede shoes",item.getDescription());
         assertEquals(1,itemGroup.getAmount());

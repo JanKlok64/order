@@ -31,7 +31,7 @@ public class AdminController {
         myLogger.info("List of admins delivered");
         return adminService.getAdmins().stream()
                 .map(admin -> new AdminDto()
-                        .setUuid(admin.getUuid())
+                        .setUuid(admin.getId())
                         .setFirstName(admin.getFirstName())
                         .setLastName(admin.getLastName())
                         .setEmail(admin.getEmail())

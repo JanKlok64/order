@@ -21,6 +21,10 @@ public class Order {
         return id;
     }
 
+    public String getCustomerId() {
+        return customerId;
+    }
+
     public Collection<ItemGroup> getItemGroups() {
         return itemGroups;
     }

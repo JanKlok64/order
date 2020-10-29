@@ -3,7 +3,7 @@ package com.switchfully.jan.order.instances;
 import java.util.UUID;
 
 public abstract class Person {
-    private String uuid;
+    private String id;
     private String firstName;
     private String lastName;
     private String email;
@@ -11,7 +11,7 @@ public abstract class Person {
     private String phoneNumber;
 
     public Person(String firstName, String lastName, String email, Address address, String phoneNumber) {
-        this.uuid = UUID.randomUUID().toString();
+        this.id = UUID.randomUUID().toString();
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -19,8 +19,8 @@ public abstract class Person {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getUuid() {
-        return uuid;
+    public String getId() {
+        return id;
     }
 
     public String getFirstName() {

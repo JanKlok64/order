@@ -43,8 +43,8 @@ class CustomerTest {
         }
         String customerLastName = firstCustomer.getLastName();
         //when
-        Customer wantedCustomer = customerRepository.getCustomer(firstCustomer.getUuid());
+        Customer wantedCustomer = customerRepository.getCustomer(firstCustomer.getId());
         //then
-        assertEquals(firstCustomer.getLastName(),wantedCustomer.getLastName());
+        assertEquals(customerLastName,wantedCustomer.getLastName());
     }
 }
