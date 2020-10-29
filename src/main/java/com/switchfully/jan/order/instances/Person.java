@@ -10,8 +10,11 @@ public abstract class Person {
     private Address address;
     private String phoneNumber;
 
-    public Person(String firstName, String lastName, String email, Address address, String phoneNumber) {
-        this.id = UUID.randomUUID().toString();
+    public Person(String id, String firstName, String lastName, String email, Address address, String phoneNumber) {
+        if (id == null)
+            this.id = UUID.randomUUID().toString();
+        else
+            this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

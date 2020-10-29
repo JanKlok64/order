@@ -15,10 +15,10 @@ public class CustomerRepository {
 
     public CustomerRepository() {
         Address address1 = new Address("Oudebaan", "191", "3000", "Leuven");
-        Customer customer1 = new Customer("Jan", "Klok", "jan@klok.com", address1, "0484246262");
+        Customer customer1 = new Customer("1","Jan", "Klok", "jan@klok.com", address1, "0484246262");
         customers.put(customer1.getId(), customer1);
         Address address2 = new Address("Oudebaan", "191", "3000", "Leuven");
-        Customer customer2 = new Customer("Lieve", "Klok", "jan@klok.com", address2, "0484246262");
+        Customer customer2 = new Customer("2","Lieve", "Klok", "jan@klok.com", address2, "0484246262");
         customers.put(customer2.getId(), customer2);
     }
 

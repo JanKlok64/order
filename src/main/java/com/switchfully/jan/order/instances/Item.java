@@ -9,8 +9,11 @@ public class Item {
     private double price;
     private int stock;
 
-    public Item(String name, String description, double price, int stock) {
-        this.id = UUID.randomUUID().toString();
+    public Item(String id, String name, String description, double price, int stock) {
+        if (id == null)
+            this.id = UUID.randomUUID().toString();
+        else
+            this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;

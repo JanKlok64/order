@@ -37,7 +37,7 @@ public class ItemController {
         if (adminId == null || adminId.isBlank() || !adminIsMatched(adminId)) {
             throw new NotAuthorizedException("Invalid adminId provided");
         }
-        Item item = new Item(addItemDto.getName(), addItemDto.getDescription(), addItemDto.getPrice(), addItemDto.getStock());
+        Item item = new Item(null, addItemDto.getName(), addItemDto.getDescription(), addItemDto.getPrice(), addItemDto.getStock());
         itemService.addItem(item);
         myLogger.info("Item created");
     }

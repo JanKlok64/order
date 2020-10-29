@@ -13,8 +13,8 @@ public class ItemRepository {
     private final Map<String, Item> items = new HashMap<>();
 
     public ItemRepository() {
-        addItem(new Item("Shoes","Blue suede shoes",79.99,10));
-        addItem(new Item("Shirts","Wet t-shirts",19.99,20));
+        addItem(new Item("1","Shoes","Blue suede shoes",79.99,10));
+        addItem(new Item("2","Shirts","Wet t-shirts",19.99,20));
     }
 
     public void addItem(Item item) {

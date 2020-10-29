@@ -13,7 +13,7 @@ class CustomerTest {
         String customerStreet = "Nieuwstraat";
         //when
         Address address = new Address(customerStreet,"1A","1000","Brussel");
-        Customer customer = new Customer("Jef",customerLastName,"jef@patat.be", address, "027778899");
+        Customer customer = new Customer("1","Jef",customerLastName,"jef@patat.be", address, "027778899");
         //then
         assertEquals(customerLastName,customer.getLastName());
         assertEquals(customerStreet,customer.getAddress().getStreet());
@@ -26,7 +26,7 @@ class CustomerTest {
         int expectedRepositorySize = 3;
         //when
         Address address = new Address("Nieuwstraat","1A","1000","Brussel");
-        Customer customer = new Customer("Jef","Patat","jef@patat.be", address, "027778899");
+        Customer customer = new Customer("3","Jef","Patat","jef@patat.be", address, "027778899");
         customerRepository.addCustomer(customer);
         //then
         assertEquals(expectedRepositorySize,customerRepository.getAllCustomers().size());

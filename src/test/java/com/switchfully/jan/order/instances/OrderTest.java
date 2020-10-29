@@ -12,14 +12,14 @@ class OrderTest {
     @Test
     void givenOneItem_whenOrderIsCreatedWithItemForCustomer_thenOrderWithItemIsThere() {
         //given
-        Item item = new Item("Shoes","Blue suede shoes",79.99,5);
+        Item item = new Item("1","Shoes","Blue suede shoes",79.99,5);
         String itemId = item.getId();
         Collection<ItemGroup> itemGroups = new ArrayList<>();
         ItemGroup itemGroup = new ItemGroup(item.getId(),1, LocalDate.of(2020,10,29));
         itemGroups.add(itemGroup);
         //when
         Address address = new Address("Oudebaan","191","3000","Leuven");
-        Customer customer = new Customer("Jan","Klok","jan@klok.be",address,"0484246262");
+        Customer customer = new Customer("1","Jan","Klok","jan@klok.be",address,"0484246262");
         Order order = new Order(LocalDate.of(2020,10,28),customer.getId(),itemGroups);
         //then
         assertEquals("Blue suede shoes",item.getDescription());

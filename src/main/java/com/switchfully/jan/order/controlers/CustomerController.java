@@ -35,7 +35,7 @@ public class CustomerController {
     @ResponseStatus(HttpStatus.CREATED)
     public void addCustomer(@RequestBody CustomerDto addCustomerDto, AddressDto addAddressDto) {
         Address address = new Address(addAddressDto.getStreet(), addAddressDto.getHouseNumber(), addAddressDto.getPostalCode(), addAddressDto.getCityName());
-        Customer customer = new Customer(addCustomerDto.getFirstName(), addCustomerDto.getLastName(), addCustomerDto.getEmail(), address, addCustomerDto.getPhoneNumber());
+        Customer customer = new Customer(null,addCustomerDto.getFirstName(), addCustomerDto.getLastName(), addCustomerDto.getEmail(), address, addCustomerDto.getPhoneNumber());
         customerService.addCustomer(customer);
         myLogger.info("Customer created");
     }

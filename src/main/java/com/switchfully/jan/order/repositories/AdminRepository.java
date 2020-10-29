@@ -15,7 +15,7 @@ public class AdminRepository {
 
     public AdminRepository() {
         Address address = new Address("Oudebaan", "191", "3000", "Leuven");
-        Admin admin = new Admin("Jan", "Klok", "jan@klok.com", address, "0484246262");
+        Admin admin = new Admin("999","Jan", "Klok", "jan@klok.com", address, "0484246262");
         admins.put(admin.getId(), admin);
     }
 
