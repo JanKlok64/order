@@ -16,4 +16,19 @@ class ItemTest {
         //then
         assertEquals(expectedItemRepositorySize,itemRepository.getItems().size());
     }
+
+    @Test
+    void givenItem_whenItemNameIsUpdatedtoFOO_thenItemNameIsFOO() {
+        //given
+        ItemRepository itemRepository = new ItemRepository();
+        Item itemToUpdate = itemRepository.getItemById("1");
+        String oldName = itemToUpdate.getName();
+        itemToUpdate.setName("FOO");
+        //when
+        itemRepository.updateItem(itemToUpdate);
+        Item updatedItem = itemRepository.getItemById("1");
+        String newName = updatedItem.getName();
+        //then
+        assertNotEquals(oldName,newName);
+    }
 }

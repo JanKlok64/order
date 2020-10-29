@@ -32,4 +32,8 @@ public class ItemRepository {
         }
         return null;
     }
+
+    public void updateItem(Item item) {
+        items.put(item.getId(), item);
+    }
 }
