@@ -1,10 +1,15 @@
 package com.switchfully.jan.order.controlers.dto;
 
 public class ItemDto {
+    private String id;
     private String name;
     private String description;
     private double price;
     private int stock;
+
+    public String getId() {
+        return id;
+    }
 
     public String getName() {
         return name;
@@ -20,6 +25,11 @@ public class ItemDto {
 
     public int getStock() {
         return stock;
+    }
+
+    public ItemDto setId(String id) {
+        this.id = id;
+        return this;
     }
 
     public ItemDto setName(String name) {

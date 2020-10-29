@@ -48,11 +48,24 @@ public class ItemController {
         myLogger.info("List of items delivered");
         return itemService.getItems().stream()
                 .map(item -> new ItemDto()
+                        .setId(item.getId())
                         .setName(item.getName())
                         .setDescription(item.getDescription())
                         .setPrice(item.getPrice())
                         .setStock(item.getStock()))
                 .collect(Collectors.toList());
+    }
+
+    @PutMapping(path = "/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void updateItem(@PathVariable String id, @RequestBody ItemDto itemDto, @RequestParam String adminId) {
+        Item itemToUpdate = itemService.getItemById(id);
+        itemToUpdate.setName(itemDto.getName());
+        itemToUpdate.setDescription(itemDto.getDescription());
+        itemToUpdate.setPrice(itemDto.getPrice());
+        itemToUpdate.setStock(itemDto.getStock());
+        itemService.updateItem(itemToUpdate);
+        myLogger.info("Item with id " + id + " updated.");
     }
 
     public boolean adminIsMatched(String adminId) {

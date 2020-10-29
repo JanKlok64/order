@@ -1,6 +1,7 @@
 package com.switchfully.jan.order.controlers;
 
 import com.switchfully.jan.order.controlers.dto.ItemDto;
+import com.switchfully.jan.order.controlers.dto.ItemGroupDto;
 import com.switchfully.jan.order.controlers.dto.OrderDto;
 import com.switchfully.jan.order.exceptions.NotAuthorizedException;
 import com.switchfully.jan.order.instances.Item;
@@ -12,6 +13,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.util.Collection;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(path = "/orders")
@@ -33,6 +38,19 @@ public class OrderController {
         orderService.addOrder(order);
         myLogger.info("Order created");
     }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public Collection<OrderDto> getOrders() {
+        myLogger.info("List of orders delivered");
+        return orderService.getOrders().stream()
+                .map(order -> new OrderDto()
+                        .setOrderDate(order.getOrderDate())
+                        .setCustomerId(order.getCustomerId())
+                        .setItemGroups(null))
+                .collect(Collectors.toList());
+    }
+
 
 
 }

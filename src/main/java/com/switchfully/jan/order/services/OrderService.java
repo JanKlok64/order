@@ -11,6 +11,8 @@ import com.switchfully.jan.order.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+
 @Service
 public class OrderService {
     private final OrderRepository orderRepository;
@@ -41,4 +43,9 @@ public class OrderService {
         // add the order
         orderRepository.addOrder(order);
     }
+
+    public Collection<Order> getOrders() {
+        return orderRepository.getOrders();
+    }
+
 }

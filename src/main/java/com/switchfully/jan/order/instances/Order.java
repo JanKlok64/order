@@ -21,6 +21,10 @@ public class Order {
         return id;
     }
 
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
+
     public String getCustomerId() {
         return customerId;
     }

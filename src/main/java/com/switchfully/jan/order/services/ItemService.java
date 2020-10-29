@@ -24,4 +24,12 @@ public class ItemService {
     public Collection<Item> getItems() {
         return itemRepository.getItems();
     }
+
+    public Item getItemById(String id) {
+        return itemRepository.getItemById(id);
+    }
+
+    public void updateItem(Item itemToUpdate) {
+        itemRepository.addItem(itemToUpdate);
+    }
 }
