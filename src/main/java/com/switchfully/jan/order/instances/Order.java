@@ -10,7 +10,7 @@ public class Order {
     private String customerId;
     private Collection<ItemGroup> itemGroups;
 
-    public Order(String id, LocalDate orderDate, String customerId, Collection<ItemGroup> itemGroups) {
+    public Order(LocalDate orderDate, String customerId, Collection<ItemGroup> itemGroups) {
         this.id = UUID.randomUUID().toString();
         this.orderDate = orderDate;
         this.customerId = customerId;
@@ -19,5 +19,9 @@ public class Order {
 
     public String getId() {
         return id;
+    }
+
+    public Collection<ItemGroup> getItemGroups() {
+        return itemGroups;
     }
 }

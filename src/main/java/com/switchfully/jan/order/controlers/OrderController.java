@@ -26,7 +26,7 @@ public class OrderController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void addOrder(@RequestBody OrderDto addOrderDto) {
-        Order order = new Order(addOrderDto.getId(), addOrderDto.getOrderDate(), addOrderDto.getCustomerId(), addOrderDto.getItemGroups());
+        Order order = new Order(addOrderDto.getOrderDate(), addOrderDto.getCustomerId(), addOrderDto.getItemGroups());
         orderService.addOrder(order);
         myLogger.info("Order created");
     }

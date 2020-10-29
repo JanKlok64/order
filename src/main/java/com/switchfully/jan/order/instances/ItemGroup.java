@@ -12,4 +12,8 @@ public class ItemGroup {
         this.amount = amount;
         this.shippingDate = shippingDate;
     }
+
+    public int getAmount() {
+        return amount;
+    }
 }
